@@ -1,15 +1,3 @@
-/**
- * Zoom Server-to-Server OAuth client.
- *
- * Requires a "Server-to-Server OAuth" app created in the Zoom App
- * Marketplace (not a user-facing OAuth app — no Zoom login redirect is
- * involved). The app must be granted the `meeting:write:admin` (or
- * `meeting:write`) scope so it can create meetings on behalf of the
- * account owner.
- *
- * Docs: https://developers.zoom.us/docs/internal-apps/create/
- */
-
 const ZOOM_ACCOUNT_ID = process.env.ZOOM_ACCOUNT_ID;
 const ZOOM_CLIENT_ID = process.env.ZOOM_CLIENT_ID;
 const ZOOM_CLIENT_SECRET = process.env.ZOOM_CLIENT_SECRET;

@@ -13,7 +13,7 @@ const app = express();
 connectDB();
 
 app.use(cors({ origin: process.env.CLIENT_URL || '*' }));
-app.use(express.json({ limit: '200kb' })); // small limit keeps it lean for low-bandwidth clients
+app.use(express.json({ limit: '200kb' })); 
 app.use(morgan('dev'));
 
 app.get('/api/health', (req, res) => res.json({ status: 'ok' }));

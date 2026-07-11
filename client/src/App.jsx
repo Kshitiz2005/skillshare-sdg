@@ -22,7 +22,6 @@ function Nav() {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const location = useLocation();
 
-  // Close the mobile menu automatically whenever the route changes
   React.useEffect(() => {
     setMenuOpen(false);
   }, [location.pathname]);

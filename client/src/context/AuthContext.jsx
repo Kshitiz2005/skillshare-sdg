@@ -13,10 +13,10 @@ const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const [firebaseUser, setFirebaseUser] = useState(null);
-  const [profile, setProfile] = useState(null); // Mongo user document
+  const [profile, setProfile] = useState(null); 
   const [loading, setLoading] = useState(true);
 
-  // Fetch the Mongo profile for the current Firebase session
+  
   async function loadProfile(fbUser) {
     if (!fbUser) {
       setProfile(null);
@@ -29,7 +29,7 @@ export function AuthProvider({ children }) {
     if (res.ok) {
       setProfile(await res.json());
     } else {
-      setProfile(null); // not yet registered in Mongo (needs role selection)
+      setProfile(null); 
     }
   }
 
@@ -67,7 +67,6 @@ export function AuthProvider({ children }) {
   async function loginWithGoogle(role) {
     const cred = await signInWithPopup(auth, googleProvider);
     const token = await cred.user.getIdToken();
-    // Try registering (idempotent server-side) so first-time Google users get a profile too
     const res = await fetch(`${API_URL}/auth/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

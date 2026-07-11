@@ -7,8 +7,7 @@ export default function MentorCard({ mentor }) {
 
   return (
     <article className="mentor-card" aria-label={`Mentor: ${mentor.displayName}`}>
-      {/* Photos are skipped entirely in low-bandwidth mode, not just hidden with CSS,
-          so the browser never fetches the bytes. */}
+      {}
       {!lowBandwidth && mentor.photoURL && (
         <img
           className="mentor-photo"

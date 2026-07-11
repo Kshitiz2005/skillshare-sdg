@@ -3,7 +3,7 @@ const router = express.Router();
 const { requireAuth } = require('../middleware/auth');
 const bookingController = require('../controllers/bookingController');
 
-router.use(requireAuth); // all booking routes require a logged-in user
+router.use(requireAuth);
 
 router.post('/', bookingController.createBooking);
 router.get('/me', bookingController.getMyBookings);

@@ -1,11 +1,5 @@
 const admin = require('../config/firebaseAdmin');
 const User = require('../models/User');
-
-/**
- * Verifies the Firebase ID token sent in the Authorization header
- * ("Bearer <token>") and attaches the corresponding Mongo user
- * document to req.user. Rejects with 401 if invalid/missing.
- */
 async function requireAuth(req, res, next) {
   try {
     const authHeader = req.headers.authorization || '';
@@ -30,9 +24,6 @@ async function requireAuth(req, res, next) {
   }
 }
 
-/**
- * Restricts a route to specific roles, e.g. requireRole('mentor')
- */
 function requireRole(...roles) {
   return (req, res, next) => {
     if (!req.user || !roles.includes(req.user.role)) {

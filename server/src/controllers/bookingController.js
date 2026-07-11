@@ -152,7 +152,6 @@ exports.submitFeedback = async (req, res) => {
     booking.feedback = { rating, comment: comment || '', submittedBy: req.user._id };
     await booking.save();
 
-    // Update mentor's running average rating
     const mentor = await User.findById(booking.mentor);
     const newCount = mentor.ratingCount + 1;
     const newAvg = (mentor.rating * mentor.ratingCount + rating) / newCount;

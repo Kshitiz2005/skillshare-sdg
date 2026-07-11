@@ -1,6 +1,5 @@
 const User = require('../models/User');
 
-// GET /api/mentors?subject=Coding&language=English&search=react
 exports.listMentors = async (req, res) => {
   try {
     const { subject, language, search } = req.query;
@@ -28,7 +27,6 @@ exports.listMentors = async (req, res) => {
   }
 };
 
-// GET /api/mentors/:id
 exports.getMentor = async (req, res) => {
   try {
     const mentor = await User.findOne({ _id: req.params.id, role: 'mentor' })
@@ -43,7 +41,6 @@ exports.getMentor = async (req, res) => {
   }
 };
 
-// PATCH /api/mentors/me  (mentor updates own profile: expertise, availability, bio, etc.)
 exports.updateMyMentorProfile = async (req, res) => {
   try {
     if (req.user.role !== 'mentor') {

@@ -16,9 +16,8 @@ export function BandwidthProvider({ children }) {
     try {
       window.localStorage.setItem(STORAGE_KEY, String(lowBandwidth));
     } catch {
-      /* localStorage unavailable, ignore */
     }
-    // Toggle a body class so plain CSS can hide heavy assets globally too
+    
     document.body.classList.toggle('low-bandwidth', lowBandwidth);
   }, [lowBandwidth]);
 
